@@ -7,3 +7,9 @@ GoLang example for starter
 ```go run``` --> generate *exe & run 
 
 ```go install``` -> move *.exe to GOBIN
+
+
+## Syntax Note
+- Go use compiler for build *.go into platform(OS)'s binary (executable)
+- unused import, variable will throw compile error
+- ***panic*** is name of runtime error
