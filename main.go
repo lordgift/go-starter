@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+type customer struct {
+	firstname string
+	lastname  string
+	age       int
+}
+
 func main() {
 	//shorthand declaration
 	name := "John"
@@ -60,4 +66,8 @@ func main() {
 		"John": 100,
 	}
 	fmt.Println(scores)
+
+	fmt.Println("----- struct -----")
+	var cust customer
+	fmt.Printf("%#v\n", cust)
 }
