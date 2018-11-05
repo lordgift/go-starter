@@ -98,4 +98,9 @@ func main() {
 	fmt.Println(randomNums)
 	sort.Ints(randomNums)
 	fmt.Println(randomNums)
+
+	fmt.Println("---------- function as variable ----------")
+	println := fmt.Println
+	println("I'm fmt.Println()")
+
 }
