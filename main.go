@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"sort"
 )
 
 type customer struct {
@@ -24,8 +26,7 @@ func main() {
 	name := "John"
 	fmt.Println("Hello, ", name)
 
-	fmt.Println("----- Branch Statement -----")
-
+	fmt.Println("---------- Branch Statement ----------")
 	//inline declaration
 	if inlineDeclare := "john"; inlineDeclare != "I'm Groot" {
 		fmt.Println(inlineDeclare + " not equal to 'I'm Groot'")
@@ -44,7 +45,7 @@ func main() {
 		fmt.Println("default case")
 	}
 
-	fmt.Println("----- Slice Statement -----")
+	fmt.Println("---------- Slice Statement ----------")
 
 	//Slice (array)
 	var nums []int
@@ -70,25 +71,31 @@ func main() {
 	nums3 := make([]int, 10)
 	fmt.Println(nums3)
 
-	fmt.Println("----- Map Statement -----")
+	fmt.Println("---------- Map Statement ----------")
 	scores := map[string]int{
 		"John": 100,
 	}
 	fmt.Println(scores)
 
-	fmt.Println("----- struct -----")
+	fmt.Println("---------- struct ----------")
 	var cust customer
 	fmt.Printf("%#v\n", cust)
 
-	fmt.Println("----- pointer -----")
+	fmt.Println("---------- pointer ----------")
 	var pa *int
 	a := 10
 	pa = &a
 	*pa = 500
 	fmt.Println(a)
 
-	fmt.Println("----- pass by reference -----")
+	fmt.Println("---------- pass by reference ----------")
 	i := 10
 	mutableFunc(&i)
 	fmt.Println(i)
+
+	fmt.Println("---------- use bundled library ----------")
+	randomNums := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+	fmt.Println(randomNums)
+	sort.Ints(randomNums)
+	fmt.Println(randomNums)
 }
