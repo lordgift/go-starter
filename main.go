@@ -10,6 +10,15 @@ type customer struct {
 	age       int
 }
 
+//normal function
+func add(a int, b int) int {
+	return a + b
+}
+
+func mutableFunc(a *int) {
+	*a *= 2
+}
+
 func main() {
 	//shorthand declaration
 	name := "John"
@@ -70,4 +79,16 @@ func main() {
 	fmt.Println("----- struct -----")
 	var cust customer
 	fmt.Printf("%#v\n", cust)
+
+	fmt.Println("----- pointer -----")
+	var pa *int
+	a := 10
+	pa = &a
+	*pa = 500
+	fmt.Println(a)
+
+	fmt.Println("----- pass by reference -----")
+	i := 10
+	mutableFunc(&i)
+	fmt.Println(i)
 }

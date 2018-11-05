@@ -13,3 +13,5 @@ GoLang example for starter
 - Go use compiler for build *.go into platform(OS)'s binary (executable)
 - unused import, variable will throw compile error
 - ***panic*** is name of runtime error
+- Go use copy value to assign variable (also copy all in struct)
+- Must use pointer(& reference, * dereference) if need to reference to address
