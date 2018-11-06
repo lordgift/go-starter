@@ -16,3 +16,4 @@ GoLang example for starter
 - multiple return value allowed (most found for *error)
 - Go use copy value to assign variable (also copy all in struct)
 - Must use pointer(& reference, * dereference) if need to reference to address
+- ```defer``` use for close resource(s)
