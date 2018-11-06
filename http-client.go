@@ -5,10 +5,15 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"strings"
 )
 
 func main() {
-	req, err := http.NewRequest("POST", "https://httpbin.org/post", nil)
+	reqBody := `{
+		"name": "LordGift"
+	}`
+
+	req, err := http.NewRequest("POST", "https://httpbin.org/post", strings.NewReader(reqBody))
 
 	//request header
 	req.Header.Set("Content-Type", "application/json")
