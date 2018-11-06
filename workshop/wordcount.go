@@ -8,6 +8,7 @@ import (
 )
 
 /**
+how many word of input ?
 $ go run wordcount.go < input.txt
 */
 func main() {

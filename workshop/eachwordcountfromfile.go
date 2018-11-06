@@ -9,7 +9,7 @@ import (
 )
 
 /**
-$ go run eachwordcount.go < input.txt
+same as eachwordcount.go but read file (no need input redirect via CLI)
 */
 func main() {
 	var wordCount int

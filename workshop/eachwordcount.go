@@ -8,6 +8,7 @@ import (
 )
 
 /**
+how many recurrent word of input ?
 $ go run eachwordcount.go < input.txt
 */
 func main() {
