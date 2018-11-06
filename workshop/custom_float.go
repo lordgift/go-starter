@@ -7,13 +7,12 @@ import (
 
 type MyFloat float64
 
-func (i MyFloat) power(power int) float64 {
-	result := math.Pow(float64(i), float64(power))
-	return result
+func (f *MyFloat) power(power int) {
+	*f = MyFloat(math.Pow(float64(*f), float64(power)))
 }
 
 func main() {
 	a := MyFloat(2.0)
-
-	fmt.Println(a.power(2)) // => 4.0
+	a.power(2)
+	fmt.Println(a) // => 4.0
 }
