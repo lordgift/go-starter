@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 type Sender interface {
@@ -25,11 +26,13 @@ func (email *Email) Send(msg string) error {
 	return nil
 }
 
-func main() {
-	var sender Sender
-	sender = &SMS{"0000000000"}
-	sender.Send("Happy New Year!!")
+func SendMessage(sender Sender, message string) {
+	log.Println("====== Sending ======")
+	sender.Send(message)
+	log.Println("====== Sent ======")
+}
 
-	sender = &Email{"email@email.com"}
-	sender.Send("Happy New Year!!")
+func main() {
+	SendMessage(&SMS{"0000000000"}, "Happy New Year!!")
+	SendMessage(&Email{"email@mail.com"}, "Happy New Year!!")
 }
