@@ -25,3 +25,5 @@ GoLang example for starter
 - ```var ch chan int``` or ```ch := make(chan int)``` is creation of channel variable with type int.
 - channel use for communication of goroutine [channel.go](./channel.go) 
 - ```make``` can use with channel, slice, map.
+- Go can do cross-compile (build other OS' binary).
+- Go binary larger than C, cause it bundle runtime in it (sometimes C need sharelib eg. *.dll).
