@@ -17,12 +17,24 @@ func getInt(begin int, end int) chan int {
 }
 
 func main() {
-	begin, end := 1, 100
-	channel := getInt(begin, end)
-	for v := range channel {
-		fmt.Println(v)
-	}
-	// for i := 1; i <= 100; i++ {
-	// 	fmt.Println(<-channel)
-	// }
+	done := make(chan struct{})
+	go func() {
+		for v := range getInt(1, 100) {
+			fmt.Println(v)
+		}
+		// for i := 1; i <= 100; i++ {
+		// 	fmt.Println(<-channel)
+		// }
+		done <- struct{}{}
+	}()
+
+	go func() {
+		for v := range getInt(200, 500) {
+			fmt.Println(v)
+		}
+		done <- struct{}{}
+	}()
+
+	<-done
+	<-done
 }
