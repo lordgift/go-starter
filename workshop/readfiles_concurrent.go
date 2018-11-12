@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func readFile(filename string) {
+func readFile(filename string, done chan bool) {
 	f, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
@@ -18,10 +18,15 @@ func readFile(filename string) {
 	}
 
 	defer f.Close()
+	done <- true
 }
 
 func main() {
+	done := make(chan bool)
+	go readFile("input.txt", done)
+	go readFile("input2.txt", done)
 
-	go readFile("input.txt")
-	readFile("input2.txt")
+	//try to get value from channel (for check it done)
+	<-done
+	<-done
 }

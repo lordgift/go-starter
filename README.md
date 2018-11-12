@@ -21,4 +21,7 @@ GoLang example for starter
 - Method Receiver use same meaning of ```this``` in Java [custom_type.go](./custom_type.go).
 - ```nil``` is no initiate variable.
 - goroutine is very small concurrency work.
-- ```go``` keyword use for create new goroutine [Concurrency](./concurrency/main.go)
+- ```go``` keyword use for create new goroutine [Concurrency Example](./concurrency/main.go).
+- ```var ch chan int``` or ```ch := make(chan int)``` is creation of channel variable with type int.
+- channel use for communication of goroutine [channel.go](./channel.go) 
+- ```make``` can use with channel, slice, map.
