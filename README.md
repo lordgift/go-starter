@@ -19,3 +19,6 @@ GoLang example for starter
 - ```defer``` use for close resource(s) [eachwordcountfromfile.go](./workshop/eachwordcountfromfile.go).
 - Go not have Inheritance but Polymophism available.
 - Method Receiver use same meaning of ```this``` in Java [custom_type.go](./custom_type.go).
+- ```nil``` is no initiate variable.
+- goroutine is very small concurrency work.
+- ```go``` keyword use for create new goroutine [Concurrency](./concurrency/main.go)
