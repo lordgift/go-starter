@@ -1,13 +1,13 @@
 # go-starter
 GoLang example for starter
 
-```go build``` --> generate *.exe (manually run *.exe)
+```go build``` --> generate *.exe (only create *.exe)
 
-
-```go run``` --> generate *exe & run 
+```go run <file_name.go>``` -> build *.go & then execute *.exe 
 
 ```go install``` -> move *.exe to GOBIN
 
+Go binary difference by OS.
 
 ## Syntax Note
 - Go use compiler for build *.go into platform(OS)'s binary (executable).
