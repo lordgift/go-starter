@@ -1,4 +1,4 @@
-package removeduplicates
+package removeduplicate
 
 func RemoveDuplicate(ss []string) []string {
 	checked := make(map[string]struct{})
@@ -9,6 +9,5 @@ func RemoveDuplicate(ss []string) []string {
 			checked[s] = struct{}{}
 		}
 	}
-
 	return result
 }
