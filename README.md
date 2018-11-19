@@ -27,3 +27,7 @@ Go binary difference by OS.
 - ```make``` can use with channel, slice, map.
 - Go can do cross-compile (build other OS' binary).
 - Go binary larger than C, cause it bundle runtime in it (sometimes C need sharelib eg. *.dll).
+
+
+Go Module
+- project structure sample  [user-service](./user-service/) 
