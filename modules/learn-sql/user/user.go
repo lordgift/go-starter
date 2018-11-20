@@ -5,12 +5,26 @@ import (
 	"log"
 )
 
+type Service struct {
+	DB *sql.DB
+}
+
+func (s *Service) FindByID(id int) (*User, error) {
+	stmt := "SELECT id, first_name, last_name, email FROM users WHERE id = $1"
+	row := s.DB.QueryRow(stmt, id)
+	var u User
+	err := row.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Email)
+	if err != nil {
+		return nil, err
+	}
+	return &u, nil
+}
+
 var db *sql.DB
 
 func ConnectDB() {
 	var err error
-	// connStr := "user=postgres password=gotraining dbname=postgres sslmode=disable"
-	connStr := "postgres://postgres:gotraining@localhost/postgres?sslmode=disable"
+	connStr := "postgres://tpxbvdny:3xQCeyAUtP6Hq5uqgPCTrI54cfRUqzTe@elmer.db.elephantsql.com:5432/tpxbvdny"
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
@@ -29,16 +43,6 @@ func Insert(u *User) error {
 		 values ($1, $2, $3) RETURNING id`
 	row := db.QueryRow(stmt, u.FirstName, u.LastName, u.Email)
 	err := row.Scan(&u.ID)
-
-	// MYSQL or MariaDB
-	// stmt := `INSERT INTO users(first_name, last_name, email)
-	// 	 values (?, ?, ?)`
-	// result, err := db.Exec(stmt, u.FirstName, u.LastName, u.Email)
-	// if err != nil {
-	// 	return err
-	// }
-	// newID, _ := result.LastInsertId()
-	// u.ID = int(newID)
 
 	return err
 }
@@ -84,6 +88,17 @@ func Delete(u *User) error {
 	return err
 }
 
-// func Last() User {}
+func Last() User {
+	var u User
+	stmt := "SELECT id first_name, last_name, email FROM users ORDER BY id desc LIMIT 1"
+	row := db.QueryRow(stmt)
+	row.Scan(&u.ID, &u.FirstName, &u.LastName, &u.Email)
+	return u
+}
 
-// func ResetStorage() {}
+func ResetStorage() {
+	_, err := db.Exec("TRUNCATE TABLE users RESTART IDENTITY")
+	if err != nil {
+		log.Fatal(err)
+	}
+}
