@@ -28,6 +28,7 @@ Go binary difference by OS.
 - Go can do cross-compile (build other OS' binary).
 - Go binary larger than C, cause it bundle runtime in it (sometimes C need sharelib eg. *.dll).
 
-
 Go Module
+- ```go mod init <module_name>``` initial go module (any directory)
 - project structure sample  [user-service](./user-service/) 
+- ```go get <ex: github.com/gin-gonic/gin>``` download dependency
